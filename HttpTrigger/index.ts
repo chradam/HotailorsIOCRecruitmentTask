@@ -13,10 +13,21 @@ const httpTrigger: AzureFunction = async (ctx: Context, req: HttpRequest): Promi
 
     const functionService: IFunctionService<any> =
         container.get<IFunctionService<any>>(COMMON_TYPES.IFunctionService);
-    const response: any = await functionService.processMessageAsync(req.body);
+    
+    let responseStatus: number;
+    let response: object;
+    
+    if (req.query.id) {
+        responseStatus = 200;
+        response = await functionService.processMessageAsync(req.query);
+    } else {
+        responseStatus = 404;
+        response = {};
+    }
+
     ctx.res = {
         body: response,
-        status: 200,
+        status: responseStatus,
         headers: { "Content-Type": "application/json" },
     };
     return ctx.res;

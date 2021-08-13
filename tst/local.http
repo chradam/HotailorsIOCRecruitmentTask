@@ -1,0 +1,5 @@
+GET http://localhost:7071/api/HttpTrigger?id=1&id=2&id=5&type=grass
+
+GET http://localhost:7071/api/HttpTrigger
+GET http://localhost:7071/api/HttpTrigger?id=1&id=2&id=5
+GET http://localhost:7071/api/HttpTrigger?id=1&id=2&id=5&type=fire

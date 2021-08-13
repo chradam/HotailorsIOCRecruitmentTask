@@ -5,4 +5,4 @@ dist/
 bin/
 extensions.csproj
 obj/
-.vscode
+.vscode/

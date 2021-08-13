@@ -1,3 +1,3 @@
 export interface IFunctionService<T> {
-    processMessageAsync(message: T): Promise<any>;
+    processMessageAsync(message: T): Promise<object>;
 }
